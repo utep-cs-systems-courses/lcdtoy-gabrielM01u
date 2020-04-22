@@ -30,7 +30,7 @@ int main()
     //Left-Most Triangle
     for(x=0;x<=10;x++){
       for(y=0;y<=x;y++){
-        drawPixel(x+x_origin,-y+y_origin;COLOR_WHITE);
+        drawPixel(x+x_origin,-y+y_origin,COLOR_WHITE);
       }
     }
 
