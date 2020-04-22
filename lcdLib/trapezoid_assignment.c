@@ -11,7 +11,7 @@ int main()
 
   clearScreen(COLOR_BLACK);
     int x,y;
-    int x_origin, y_origin = 10;
+    int x_origin = 10, y_origin = 10;
 
     //Rectangle
     for(y=0; y<=10; y++){
@@ -21,15 +21,15 @@ int main()
     }
 
     //Right-Most Triangle
-    for(x=0;x<=10;x++){
-      for(y=0;y<=x;y++){
+    for(y=0;y<=10;y++){
+      for(x=0;x<=y;x++){
         drawPixel(x+x_origin+20,y+y_origin+20,COLOR_WHITE);
       }
     }
 
     //Left-Most Triangle
-    for(x=0;x<=10;x++){
-      for(y=0;y<=x;y++){
+    for(y=0;y<=10;y++){
+      for(x=0;x<=y;x++){
         drawPixel(x+x_origin,-y+y_origin,COLOR_WHITE);
       }
     }
