@@ -14,8 +14,8 @@ int main()
     int x_origin, y_origin = 10;
 
     //Rectangle
-    for(y=0; if y<=10; y++){
-      for(x=0; if x<=20; x++){
+    for(y=0; y<=10; y++){
+      for(x=0; x<=20; x++){
         drawPixel(x+x_origin,y+y_origin,COLOR_WHITE);
       }
     }
