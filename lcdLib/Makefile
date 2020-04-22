@@ -25,5 +25,8 @@ clean:
 lcddemo.elf: lcddemo.o libLcd.a 
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer 
 
-load: lcddemo.elf
+trapezoid.elf: trapezoid_assignment.o libLcd.a
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@ -lTimer 
+
+load: trapezoid.elf
 	msp430loader.sh $^
