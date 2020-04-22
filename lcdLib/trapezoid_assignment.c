@@ -1,0 +1,39 @@
+#include <libTimer.h>
+#include "lcdutils.h"
+#include "lcddraw.h"
+
+int main()
+{
+
+    configureClocks();
+    lcd_init();
+    u_char width = screenWidth, height = screenHeight;
+
+  clearScreen(COLOR_BLACK);
+    int x,y;
+    int x_origin, y_origin = 10;
+
+    //Rectangle
+    while(y=0; if y<=10; y++){
+      while(x=0; if x<=20; x++){
+        drawPixel(x+x_origin,y+y_origin,COLOR_WHITE);
+      }
+    }
+
+    //Right-Most Triangle
+    while(x=0;x<=10;x++){
+      while(y=0;y<=x;y++){
+        drawPixel(x+x_origin+20,y+y_origin+20,COLOR_WHITE);
+      }
+    }
+
+    //Left-Most Triangle
+    while(x=0;x<=10;x++){
+      while(y=0;y<=x;y++){
+        drawPixel(x+x_origin,-y+y_origin;COLOR_WHITE);
+      }
+    }
+
+
+    return 0;
+}
