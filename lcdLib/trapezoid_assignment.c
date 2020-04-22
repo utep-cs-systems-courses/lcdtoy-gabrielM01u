@@ -16,21 +16,21 @@ int main()
     //Rectangle
     for(y=0; y<=10; y++){
       for(x=0; x<=20; x++){
-        drawPixel(x+x_origin,y+y_origin,COLOR_WHITE);
+        drawPixel(x+x_origin+20,y+y_origin+20,COLOR_WHITE);
       }
     }
 
     //Right-Most Triangle
     for(y=0;y<=10;y++){
       for(x=0;x<=y;x++){
-        drawPixel(x+x_origin+20,y+y_origin+20,COLOR_WHITE);
+        drawPixel(x+x_origin+40,y+y_origin+40,COLOR_WHITE);
       }
     }
 
     //Left-Most Triangle
     for(y=0;y<=10;y++){
       for(x=0;x<=y;x++){
-        drawPixel(x+x_origin,-y+y_origin,COLOR_WHITE);
+        drawPixel(-x+x_origin,y+y_origin,COLOR_WHITE);
       }
     }
 
