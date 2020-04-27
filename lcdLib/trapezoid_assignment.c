@@ -4,10 +4,10 @@
 
 int main()
 {
-
-    configureClocks();
-    lcd_init();
-    u_char width = screenWidth, height = screenHeight;
+  and_sr(~8);
+  configureClocks();
+  lcd_init();
+  u_char width = screenWidth, height = screenHeight;
 
   clearScreen(COLOR_BLACK);
     int x,y;
@@ -33,7 +33,7 @@ int main()
         drawPixel(-x+x_origin+20,y+y_origin+20,COLOR_WHITE);
       }
     }
-
+  or_sr(0x10);
 
     return 0;
 }
