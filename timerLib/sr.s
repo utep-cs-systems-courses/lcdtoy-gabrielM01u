@@ -27,3 +27,9 @@ and_sr:	nop
 	and r12, r2
 	nop
 	ret
+
+	.global xor_sr
+xor_sr: nop
+	xor r12, r2
+	nop
+	ret
