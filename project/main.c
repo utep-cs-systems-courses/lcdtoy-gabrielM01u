@@ -6,7 +6,7 @@
 
 
 int main(void){
-    configureclockes();
+    configureClocks();
     led_init();
     buzzer_init();
     p2sw_init(15);

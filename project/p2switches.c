@@ -4,6 +4,7 @@
 static unsigned char switch_mask;
 static unsigned char switches_last_reported;
 static unsigned char switches_current;
+int switch_pressed;
 /**
  * NOTE: switch_changed is a boolean indicating if a switch is pressed
  * */

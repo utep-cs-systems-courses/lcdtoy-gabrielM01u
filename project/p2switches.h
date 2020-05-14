@@ -3,7 +3,7 @@
 
 #include "msp430.h"
 
-extern int switch_pressed;
+extern int switch_pressed 0;
 unsigned int p2sw_read();
 void p2sw_init(unsigned char mask);
 
