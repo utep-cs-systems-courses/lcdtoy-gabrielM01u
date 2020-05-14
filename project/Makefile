@@ -7,13 +7,13 @@ LDFLAGS		= -L../lib -L/opt/ti/msp430_gcc/include/
 CC              = msp430-elf-gcc
 AS              = msp430-elf-gcc -mmcu=${CPU} -c
 
-all:project.elf
+all:main.elf
 
-project.elf: ${COMMON_OBJECTS} hardware.o p2switches.o stateMachine.o visuals.o wdt_handler.o ../lib/libTimer.a
+main.elf: ${COMMON_OBJECTS} hardware.o p2switches.o stateMachine.o visuals.o wdt_handler.o ../lib/libTimer.a
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
 load: main.elf
-	msp430loader.sh project.elf
+	msp430loader.sh main.elf
 
 clean:
 	rm -f *.o *.elf

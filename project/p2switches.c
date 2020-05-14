@@ -4,7 +4,9 @@
 static unsigned char switch_mask;
 static unsigned char switches_last_reported;
 static unsigned char switches_current;
-
+/**
+ * NOTE: switch_changed is a boolean indicating if a switch is pressed
+ * */
 static void
 switch_update_interrupt_sense()
 {
@@ -39,6 +41,9 @@ p2sw_read() {
 }
 
 /* Switch on P2 (S1) */
+/**
+ * NOTE: switch_pressed is a boolean indicating if a switch is pressed
+ * */
 void
 __interrupt_vec(PORT2_VECTOR) Port_2(){
   if (P2IFG & switch_mask) {  /* did a button cause this interrupt? */
