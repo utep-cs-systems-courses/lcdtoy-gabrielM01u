@@ -2,7 +2,7 @@
 #include <libTimer.h>
 #include "hardware.h"
 #include "stateMachine.h"
-#include "p2switches.h"
+#include "p2switches.hgit"
 //#include "visuals.h"
 
 void wdt_handler()
