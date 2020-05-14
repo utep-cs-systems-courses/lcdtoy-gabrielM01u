@@ -4,6 +4,8 @@
    This function is called in the switch interrupt handler.
 */
 #include <math.h>
+#include <msp430.h>
+#include "hardware.h"
 //#include "visuals.h"
 
 static int redraw = 0;
@@ -40,11 +42,11 @@ void state_machine(int s){
 void state_1(){
    int timer = 0;
     
-    while(timer++ != 125){
+    while(timer++ != 250){
         enable_green();
         led_update();
         buzzer_set_period(2200);
-        redraw = 1;
+        //redraw = 1;
     }
     disable_green();
     buzzer_off();

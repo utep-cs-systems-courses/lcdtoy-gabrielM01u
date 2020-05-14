@@ -1,11 +1,13 @@
 #include <msp430.h>
 #include <libTimer.h>
-#include "stateMachine.h";
+#include "hardware.h"
+#include "stateMachine.h"
+//#include "visuals.h"
 
 void wdt_handler()
 {
   if(swtich_pressed){
-    and_sr(~0x18)
+    and_sr(~0x18);
     static short count = 0;
     P1OUT |= GREEN_LED;		      /**< Green LED on when cpu on */
     //count ++;
