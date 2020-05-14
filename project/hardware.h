@@ -22,4 +22,19 @@ void buzzer_init();
 void buzzer_set_period(short cycles);
 void buzzer_off();
 
+//Switches
+void switch_init();
+void switch_interrupt_handler();
+static char switch_update_interrupt_sense();
+
+extern char s1_down;
+extern char s2_down;
+extern char s3_down;
+extern char s4_down;
+
+extern char switch_state_changed;
+extern int s_pressed;
+
+
+
 #endif

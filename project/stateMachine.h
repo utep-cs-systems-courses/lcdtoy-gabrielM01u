@@ -2,7 +2,7 @@
 #define stateMachine_included
 
 extern int finished;
-extern int redraw = 0;
+extern int redraw;
 
 void state_machine(int s);
 

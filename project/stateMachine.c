@@ -8,7 +8,8 @@
 #include "hardware.h"
 //#include "visuals.h"
 
-static int redraw = 0;
+int redraw = 0;
+int finished = 0;
 
 void state_machine(int s){
     
@@ -41,8 +42,8 @@ void state_machine(int s){
 //State 1: turns green on and plays buzzer for 125 cycles, then turns everything off
 void state_1(){
    int timer = 0;
-    
-    while(timer++ != 250){
+    finished = 0;
+    while(timer++ != 2500){
         enable_green();
         led_update();
         buzzer_set_period(2200);
@@ -51,13 +52,14 @@ void state_1(){
     disable_green();
     buzzer_off();
     led_update();
+    finished = 1;
 }
 
 //State 1: turns red on and plays buzzer with a different tone for 500 cycles, then turns everything off
 void state_2(){
     int timer = 0;
-
-    while(timer++ != 500){
+    finsihed = 0;
+    while(timer++ != 5000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
@@ -65,6 +67,7 @@ void state_2(){
     disable_red();
     buzzer_off();
     led_update();
+    finished = 1;
 }
 
 //State 3: turns green on and buzzer for 125 cycles, turns everything off, then turns on red and buzzard for 500 cycles, then turns everything off

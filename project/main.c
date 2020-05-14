@@ -2,14 +2,13 @@
 #include "libTimer.h"
 #include "visuals.h"
 #include "hardware.h"
-#include "p2switches.h"
 
 
 int main(void){
     configureClocks();
     led_init();
     buzzer_init();
-    p2sw_init(15);
+    switch_init();
     lcd_init();
     enableWDTInterrupts();
     

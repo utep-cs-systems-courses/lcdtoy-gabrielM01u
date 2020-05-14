@@ -7,6 +7,12 @@ unsigned char led_changed = 0;
 
 static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
 
+char s1_down;
+char s2_down;
+char s3_down;
+char s4_down;
+
+int s_pressed;
 
 void led_init()
 {
@@ -74,4 +80,56 @@ void buzzer_off(){
   CCR0 = 0;
   CCR1 = 0;
 }
+
+//SWITCHES
+/**
+ char sx_down:
+   boolean (0 or 1) indicating if a switch is pressed
+**/
+
+
+//initializes the switches
+void
+switch_init(){
+  P2REN |= SWITCHES;
+  P2IE = SWITCHES;
+  P2OUT |= SWITCHES;
+  P2DIR &= ~SWITCHES;
+  switch_update_interrupt_sense();
+}
+
+static char
+switch_update_interrupt_sense(){
+  char p2val = P2IN;
+  P2IES |= (p2val & SWITCHES);
+  P2IES &= (p2val & ~SWITCHES);
+  return p2val;
+}
+
+/*  interrupt handler for second board  */
+void
+switch_interrupt_handler(){
+
+  char p2val = switch_update_interrupt_sense();
+  s1_down = (p2val & S1) ? 0:1;
+  s2_down = (p2val & S2) ? 0:1;
+  s3_down = (p2val & S3) ? 0:1;
+  s4_down = (p2val & S4) ? 0:1;
+  switch_state_changed = 1;
+
+  if(s1_down) s_pressed = 1;
+  else if(s2_down) s_pressed = 2;
+  else if(s3_down) s_pressed = 3;
+  else if(s4_down) s_pressed= 4;
+
+
+}
+
+void
+__interrupt_vec(PORT2_VECTOR) Port_2(){
+  if(P2IFG & SWITCHES) {
+    P2IFG &= ~SWITCHES;
+    switch_interrupt_handler();
+  }
+} 
 
