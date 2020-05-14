@@ -58,7 +58,7 @@ void state_1(){
 //State 1: turns red on and plays buzzer with a different tone for 500 cycles, then turns everything off
 void state_2(){
     int timer = 0;
-    finsihed = 0;
+    finished = 0;
     while(timer++ != 5000){
         enable_red();
         led_update();

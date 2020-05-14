@@ -12,6 +12,7 @@ char s2_down;
 char s3_down;
 char s4_down;
 
+char switch_state_changed;
 int s_pressed;
 
 void led_init()
