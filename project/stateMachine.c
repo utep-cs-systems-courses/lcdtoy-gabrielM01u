@@ -43,7 +43,7 @@ void state_machine(int s){
 void state_1(){
    int timer = 0;
     finished = 0;
-    while(timer++ != 10000){
+    while(timer++ != 20000){
         enable_green();
         led_update();
         buzzer_set_period(2200);
@@ -59,7 +59,7 @@ void state_1(){
 void state_2(){
     int timer = 0;
     finished = 0;
-    while(timer++ != 10000){
+    while(timer++ != 20000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
