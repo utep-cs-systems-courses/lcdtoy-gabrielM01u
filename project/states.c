@@ -19,7 +19,8 @@ void state_1(){
         led_update();
         buzzer_set_period(2200);
         clearScreen(COLOR_BLACK);
-        drawRect(20,20);
+//        drawRect(20,20);
+        drawSpecial(20,20);
     }
     disable_green();
     buzzer_off();
