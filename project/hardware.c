@@ -122,7 +122,7 @@ switch_interrupt_handler(){
   else if(s2_down) s_pressed = 2;
   else if(s3_down) s_pressed = 3;
   else if(s4_down) s_pressed= 4;
-
+  else s_pressed = 0;
 
 }
 
