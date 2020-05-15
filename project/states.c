@@ -56,7 +56,7 @@ void state_3(){
         buzzer_set_period(1400);
         if(!redraw){
             clearScreen(COLOR_WHITE);
-            drawPerson(10,10);
+            drawSpecial(10,10);
             redraw = 1;
         }
     }
@@ -96,8 +96,8 @@ void state_4(){
 void drawRect(int x_origin, int y_origin){
     int x,y;
  
-    for(y=0; y<=10; y++){
-        for(x=0;x<=10; x++)
+    for(y=0; y<=50; y++){
+        for(x=0;x<=50; x++)
         drawPixel(x+x_origin,y+y_origin, COLOR_CYAN);
     }
 }
@@ -132,6 +132,17 @@ void drawPerson(int x_origin, int y_origin){
     for(y=0; y<3;y++) {
         drawPixel(1+x_origin, y+y_origin+8, COLOR_FIREBRICK);//left leg
         drawPixel(3+x_origin, y+y_origin+8, COLOR_FIREBRICK);//right leg
+    }
+
+}
+
+void drawSpecial(int x_origin, int y_origin){
+    int x,y;
+    for(x=0; x<20; x++){
+        for(y=0; y<5; y++) drawPixel(x+x_origin,y+y_origin+6,COLOR_FIREBRICK);
+    }
+    for(y=0; y<20; y++){
+        for(x=0; x<5; x++) drawPixel(x+x_origin+6,y+y_origin+6,COLOR_FIREBRICK);
     }
 
 }
