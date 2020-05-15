@@ -1,40 +1,7 @@
-/* State Machine: based on what swtich is pressed, will allow the msp430
-   to produce sounds and lights.
-
-   This function is called in the switch interrupt handler.
-*/
 #include <math.h>
 #include <msp430.h>
 #include "hardware.h"
 //#include "visuals.h"
-
-int redraw = 0;
-int finished = 0;
-
-void state_machine(int s){
-    
-    switch(s){
-        case 1:
-            state_1();
-            switch_state_changed = 0;
-            break;
-        case 2:
-            state_2();
-            enable_green();
-            switch_state_changed = 0;
-            break;
-        case 3:
-            state_3();
-            switch_state_changed = 0;
-            break;
-        case 4:
-            state_4();
-            switch_state_changed = 0;
-            break;
-        default:
-            break;
-    }
-}
 /**
  * States
  **/
@@ -43,7 +10,7 @@ void state_machine(int s){
 void state_1(){
    int timer = 0;
     finished = 0;
-    while(timer++ != 30000){
+    while(timer++ != 50000){
         enable_green();
         led_update();
         buzzer_set_period(2200);
@@ -59,7 +26,7 @@ void state_1(){
 void state_2(){
     int timer = 0;
     finished = 0;
-    while(timer++ != 30000){
+    while(timer++ != 50000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
