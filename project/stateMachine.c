@@ -43,7 +43,7 @@ void state_machine(int s){
 void state_1(){
    int timer = 0;
     finished = 0;
-    while(timer++ != 200000){
+    while(timer++ != 20000){
         enable_green();
         led_update();
         buzzer_set_period(2200);
