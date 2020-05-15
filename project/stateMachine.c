@@ -106,7 +106,7 @@ void state_4(){
         buzzer_set_period(1800);
     }
     disable_red();
-    disable_green
+    disable_green();
     buzzer_off();
     led_update();
     finished = 1;
