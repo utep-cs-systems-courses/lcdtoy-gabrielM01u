@@ -110,15 +110,15 @@ void drawDaimond(int x_origin, int y_origin){
 void drawPerson(int x_origin, int y_origin){
     int x,y;
     for(y=0; y<8; y++) drawPixel(3+x_origin,y+y_origin,COLOR_FIREBRICK);//torso
-    for(x=0; x<5; x++) drawPixel(x+x_origin, 0+y_origin; COLOR_FIREBRICK);//shoulder
+    for(x=0; x<5; x++) drawPixel(x+x_origin, 0+y_origin, COLOR_FIREBRICK);//shoulder
     for(y=0; y<3;y++) {
-        drawPixel(0+x_origin; y+y_origin; COLOR_FIREBRICK);//left arm
-        drawPixel(5+x_origin; y+y_origin; COLOR_FIREBRICK);//right arm
+        drawPixel(0+x_origin; y+y_origin, COLOR_FIREBRICK);//left arm
+        drawPixel(5+x_origin; y+y_origin, COLOR_FIREBRICK);//right arm
     }
-    for(x=0; x<3; x++) drawPixel(x+x_origin+1, 8+y_origin; COLOR_FIREBRICK);//waist
+    for(x=0; x<3; x++) drawPixel(x+x_origin+1, 8+y_origin, COLOR_FIREBRICK);//waist
     for(y=0; y<3;y++) {
-        drawPixel(1+x_origin; y+y_origin+8; COLOR_FIREBRICK);//left leg
-        drawPixel(3+x_origin; y+y_origin+8; COLOR_FIREBRICK);//right leg
+        drawPixel(1+x_origin; y+y_origin+8, COLOR_FIREBRICK);//left leg
+        drawPixel(3+x_origin; y+y_origin+8, COLOR_FIREBRICK);//right leg
     }
 
 }
