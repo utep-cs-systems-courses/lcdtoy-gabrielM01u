@@ -54,11 +54,9 @@ void state_3(){
         enable_red();
         led_update();
         buzzer_set_period(1400);
-        if(!redraw){
-            clearScreen(COLOR_WHITE);
-            drawSpecial(10,10);
-            redraw = 1;
-        }
+
+        clearScreen(COLOR_WHITE);
+        drawSpecial(10,10);
     }
     disable_red();
     led_update();
