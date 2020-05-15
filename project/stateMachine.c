@@ -43,7 +43,7 @@ void state_machine(int s){
 void state_1(){
    int timer = 0;
     finished = 0;
-    while(timer++ != 30000){
+    while(timer++ != 200000){
         enable_green();
         led_update();
         buzzer_set_period(2200);
@@ -59,7 +59,7 @@ void state_1(){
 void state_2(){
     int timer = 0;
     finished = 0;
-    while(timer++ != 30000){
+    while(timer++ != 200000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
@@ -72,12 +72,42 @@ void state_2(){
 
 //State 3: turns green on and buzzer for 125 cycles, turns everything off, then turns on red and buzzard for 500 cycles, then turns everything off
 void state_3(){
-    state_1();
-    state_2();
+    int timer = 0;
+    finished = 0;
+    while(timer++ != 100000){
+        enable_red();
+        led_update();
+        buzzer_set_period(1400);
+    }
+    disable_red();
+    led_update();
+    while(timer++ != 200000){
+        enable_green();
+        led_update();
+        buzzer_set_period(2000);
+    }
+    disable_green();
+    buzzer_off();
+    led_update();
+    finished = 1;
 }
 
 //State 4: turns red on and buzzer for 500 cycles, turns everything off, then does the same things as in State 3
 void state_4(){
-    state_2();
-    state_3();
+    int timer = 0;
+    finished = 0;
+    while(timer++ != 100000){
+        enable_red();
+        enable_green();
+        led_update();
+        buzzer_set_period(200);
+    }
+    while(timer++ != 200000){
+        buzzer_set_period(1800);
+    }
+    disable_red();
+    disable_green
+    buzzer_off();
+    led_update();
+    finished = 1;
 }
