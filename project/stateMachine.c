@@ -46,7 +46,7 @@ void state_1(){
     while(timer++ != 2500){
         enable_green();
         led_update();
-        buzzer_set_period(2200);
+    //    buzzer_set_period(2200);
         //redraw = 1;
     }
     disable_green();
@@ -62,7 +62,7 @@ void state_2(){
     while(timer++ != 5000){
         enable_red();
         led_update();
-        buzzer_set_period(1400);
+    //    buzzer_set_period(1400);
     }
     disable_red();
     buzzer_off();
