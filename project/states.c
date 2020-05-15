@@ -3,6 +3,8 @@
 #include "hardware.h"
 #include "visuals.h"
 
+int redraw;
+
 /**
  * States
  **/
@@ -10,6 +12,7 @@
 //State 1: turns green on and plays buzzer for 125 cycles, then turns everything off
 void state_1(){
    int timer = 0;
+   s_pressed = 0;
  //   finished = 0;
     while(timer++ != 35000){
         enable_green();
@@ -27,13 +30,14 @@ void state_1(){
 //State 1: turns red on and plays buzzer with a different tone for 500 cycles, then turns everything off
 void state_2(){
     int timer = 0;
+    s_pressed = 0;
 //    finished = 0;
     while(timer++ != 35000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
         clearScreen(COLOR_BLACK);
-        drawDaimond(30,30);
+        drawDaimond(10,10);
     }
     disable_red();
     buzzer_off();
@@ -44,13 +48,17 @@ void state_2(){
 //State 3: turns green on and buzzer for 125 cycles, turns everything off, then turns on red and buzzard for 500 cycles, then turns everything off
 void state_3(){
     int timer = 0;
+    s_pressed = 0;
 //    finished = 0;
     while(timer++ != 30000){
         enable_red();
         led_update();
         buzzer_set_period(1400);
-        clearScreen(COLOR_WHITE);
-        drawPerson(40,40);
+        if(!redraw){
+            clearScreen(COLOR_WHITE);
+            drawPerson(10,10);
+            redraw = 1;
+        }
     }
     disable_red();
     led_update();
@@ -109,11 +117,16 @@ void drawDaimond(int x_origin, int y_origin){
 
 void drawPerson(int x_origin, int y_origin){
     int x,y;
-    for(y=0; y<8; y++) drawPixel(3+x_origin,y+y_origin,COLOR_FIREBRICK);//torso
+    for(y=0; y<8; y++) {
+        drawPixel(3+x_origin,y+y_origin,COLOR_FIREBRICK);
+        drawPixel(2+x_origin,y+y_origin,COLOR_FIREBRICK);
+    }//torso
     for(x=0; x<5; x++) drawPixel(x+x_origin, 0+y_origin, COLOR_FIREBRICK);//shoulder
     for(y=0; y<3;y++) {
         drawPixel(0+x_origin, y+y_origin, COLOR_FIREBRICK);//left arm
+        drawPixel(1+x_origin, y+y_origin, COLOR_FIREBRICK);
         drawPixel(5+x_origin, y+y_origin, COLOR_FIREBRICK);//right arm
+        drawPixel(4+x_origin, y+y_origin, COLOR_FIREBRICK);
     }
     for(x=0; x<3; x++) drawPixel(x+x_origin+1, 8+y_origin, COLOR_FIREBRICK);//waist
     for(y=0; y<3;y++) {
