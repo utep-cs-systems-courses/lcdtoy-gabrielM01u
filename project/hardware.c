@@ -116,13 +116,16 @@ switch_interrupt_handler(){
   s2_down = (p2val & S2) ? 0:1;
   s3_down = (p2val & S3) ? 0:1;
   s4_down = (p2val & S4) ? 0:1;
-  switch_state_changed = 1;
+  
 
   if(s1_down) s_pressed = 1;
   else if(s2_down) s_pressed = 2;
   else if(s3_down) s_pressed = 3;
   else if(s4_down) s_pressed= 4;
   else s_pressed = 0;
+
+  if(s_pressed > 0) switch_state_changed = 1;
+  else switch_state_changed = 0;
 
 }
 
