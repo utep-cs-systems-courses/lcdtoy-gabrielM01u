@@ -1,5 +1,7 @@
-#include <math.h>
+
 #include <msp430.h>
+#include <lcdutils.h>
+#include <lcddraw.h>
 #include "hardware.h"
 
 
