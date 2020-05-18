@@ -10,8 +10,8 @@ AS              = msp430-elf-gcc -mmcu=${CPU} -c
 all:main.elf
 
 stateMachine.o: stateMachine.h stateMachine.o states.h
-main.elf: ${COMMON_OBJECTS} hardware.o main.o stateMachine.o states.o visuals.o wdt_c_handler.o ../lib/libTimer.a
-	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
+main.elf: ${COMMON_OBJECTS} hardware.o main.o stateMachine.o states.o wdt_handler.o ../lib/libTimer.a
+	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^ -lTimer -lLcd -lp2sw
 
 load: main.elf
 	msp430loader.sh main.elf

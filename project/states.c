@@ -14,14 +14,15 @@ void state_1(){
    int timer = 0;
    s_pressed = 0;
  //   finished = 0;
-    while(timer++ != 35000){
-        enable_green();
-        led_update();
-        buzzer_set_period(2200);
-        clearScreen(COLOR_BLACK);
-//        drawRect(20,20);
-        drawSpecial(20,20);
-    }
+    
+    enable_green();
+    led_update();
+    buzzer_set_period(2200);
+    clearScreen(COLOR_BLACK);
+    drawRect(20,20);
+//        drawSpecial(20,20);
+    redraw = 0;
+    while(timer++ != 350);
     disable_green();
     buzzer_off();
     led_update();
@@ -31,15 +32,15 @@ void state_1(){
 //State 1: turns red on and plays buzzer with a different tone for 500 cycles, then turns everything off
 void state_2(){
     int timer = 0;
-    s_pressed = 0;
+
 //    finished = 0;
-    while(timer++ != 35000){
-        enable_red();
-        led_update();
-        buzzer_set_period(1400);
-        clearScreen(COLOR_BLACK);
-        drawDaimond(10,10);
-    }
+    
+    enable_red();
+    led_update();
+    buzzer_set_period(1400);
+    clearScreen(COLOR_BLACK);
+    drawDaimond(10,10);
+    while(timer++ != 3500);
     disable_red();
     buzzer_off();
     led_update();
@@ -49,7 +50,7 @@ void state_2(){
 //State 3: turns green on and buzzer for 125 cycles, turns everything off, then turns on red and buzzard for 500 cycles, then turns everything off
 void state_3(){
     int timer = 0;
-    s_pressed = 0;
+
 //    finished = 0;
     while(timer++ != 30000){
         enable_red();
