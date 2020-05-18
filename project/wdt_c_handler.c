@@ -2,7 +2,7 @@
 #include <libTimer.h>
 #include "hardware.h"
 #include "stateMachine.h"
-//#include "visuals.h"
+
 
 void __interrupt_vec(WDT_VECTOR) WDT()
 {

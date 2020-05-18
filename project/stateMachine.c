@@ -6,7 +6,7 @@
 #include <math.h>
 #include <msp430.h>
 #include "hardware.h"
-#include "visuals.h"
+
 #include "states.h"
 
 int redraw = 0;

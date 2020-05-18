@@ -1,7 +1,7 @@
 #include <math.h>
 #include <msp430.h>
 #include "hardware.h"
-#include "visuals.h"
+
 
 int redraw;
 
