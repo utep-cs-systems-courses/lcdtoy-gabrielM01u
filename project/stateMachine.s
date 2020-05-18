@@ -27,23 +27,19 @@ state_machine:
 
 case_1:
     call #state_1
-    mov #0, &switch_state_changed
     jmp exit
 
 case_2:
     call #state_2
     call #enable_green
-    mov #0, &switch_state_changed
     jmp exit
 
 case_3:
     call #state_3
-    mov #0, &switch_state_changed
     jmp exit
 
 case_4:
     call #state_4
-    mov #0, &switch_state_changed
     jmp exit
 
 default:
