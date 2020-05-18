@@ -14,7 +14,7 @@ int redraw;
 //State 1: turns green on and plays buzzer for 125 cycles, then turns everything off
 void state_1(){
    int timer = 0;
-   s_pressed = 0;
+ //  s_pressed = 0;
  //   finished = 0;
     
     enable_green();

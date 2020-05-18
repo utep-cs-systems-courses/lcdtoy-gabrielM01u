@@ -17,20 +17,20 @@ void state_machine(int s){
     switch(s){
         case 1:
             state_1();
-            switch_state_changed = 0;
+            //switch_state_changed = 0;
             break;
         case 2:
             state_2();
             enable_green();
-            switch_state_changed = 0;
+            //switch_state_changed = 0;
             break;
         case 3:
             state_3();
-            switch_state_changed = 0;
+            //switch_state_changed = 0;
             break;
         case 4:
             state_4();
-            switch_state_changed = 0;
+            //switch_state_changed = 0;
             break;
         default:
             break;
