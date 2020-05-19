@@ -26,6 +26,7 @@ int main(void){
       P1OUT &= ~LED_GREEN;    /**< Green led off witHo CPU */
       or_sr(0x10);	      /**< CPU OFF */
     }
+    state_machine(state);
     P1OUT |= LED_GREEN;       /**< Green led on when CPU on */
     redraw = 0;
   }
@@ -42,19 +43,24 @@ void wdt_c_handler()
     for(k = 0; k < 4; k++) {          
       if(!(switches & (1<<k))) {
 	      if(k==0){
-          state_machine(1);
+          state = 1;
+          redraw = 1;
           counter = 0;
         }
         if(k==1){
-            state_machine(2);
+            state = 2;
             counter = 0;
           }
+        if(k==2){
+          state = 3;
+          counter = 0;
+        }
+        if(k==3){
+            state = 3;
+            counter = 0;
+        }
       }
     }
-    //if (p2sw_read()){
-        //redraw = 1;
-      //state_machine((state++ % 4)+1);//advance state
-    //}
     counter = 0;
     counter ++;
   } 
