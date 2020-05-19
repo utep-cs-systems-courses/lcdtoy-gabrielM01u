@@ -5,8 +5,6 @@
     .file "hardware.h"
     .p2align 1,0
 
-    
-redraw: .byte 0
 
 ;;state machine
     .text

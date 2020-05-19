@@ -8,6 +8,7 @@
 #include "stateMachine.h"
 
 int state;
+int redraw = 1;
 
 int main(void){
     configureClocks();
@@ -25,7 +26,7 @@ int main(void){
       or_sr(0x10);	      /**< CPU OFF */
     }
     P1OUT |= LED_GREEN;       /**< Green led on when CPU on */
-
+    redraw = 0;
   }
 }
 
@@ -36,11 +37,18 @@ void wdt_c_handler()
   P1OUT |= LED_GREEN;		      /**< Green LED on when cpu on */
   count ++;
   if (count == 15) {
+    for(k = 0; k < 4; k++) {          
+      if(!(switches & (1<<k))) {
+        count = 0;
+        state_machine(k);
+      }
+    }
     if (p2sw_read()){
-        redraw = 1;
+        //redraw = 1;
       state_machine((state++ % 4)+1);//advance state
     }
     count = 0;
+    counter ++;
   } 
   P1OUT &= ~LED_GREEN;		    /**< Green LED off when cpu off */
 }

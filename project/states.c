@@ -42,6 +42,7 @@ void state_2(){
     buzzer_set_period(1400);
     clearScreen(COLOR_BLACK);
     drawDaimond(10,10);
+    redraw = 0;
     while(timer++ != 3500);
     disable_red();
     buzzer_off();

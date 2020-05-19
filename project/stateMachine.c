@@ -9,7 +9,7 @@
 
 #include "states.h"
 
-int redraw = 0;
+
 int finished = 0;
 
 void state_machine(int s){
