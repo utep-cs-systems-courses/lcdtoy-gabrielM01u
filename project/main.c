@@ -33,21 +33,22 @@ int main(void){
 /** Watchdog timer interrupt handler. 15 interrupts/sec */
 void wdt_c_handler()
 {
-  static short count = 0;
+  static short counter = 0;
   P1OUT |= LED_GREEN;		      /**< Green LED on when cpu on */
-  count ++;
-  if (count == 15) {
-    for(k = 0; k < 4; k++) {          
+  counter ++;
+  if (counter == 15) {
+    u_int switches = p2sw_read();
+    for( int k = 0; k < 4; k++) {          
       if(!(switches & (1<<k))) {
         count = 0;
         state_machine(k);
       }
     }
-    if (p2sw_read()){
+    //if (p2sw_read()){
         //redraw = 1;
-      state_machine((state++ % 4)+1);//advance state
-    }
-    count = 0;
+      //state_machine((state++ % 4)+1);//advance state
+    //}
+    counter = 0;
     counter ++;
   } 
   P1OUT &= ~LED_GREEN;		    /**< Green LED off when cpu off */
