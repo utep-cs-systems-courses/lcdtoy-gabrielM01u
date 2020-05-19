@@ -14,7 +14,7 @@ int main(void){
     configureClocks();
     led_init();
     buzzer_init();
-    p2sw_init(1);
+    p2sw_init(15);
     lcd_init();
     enableWDTInterrupts();
     
