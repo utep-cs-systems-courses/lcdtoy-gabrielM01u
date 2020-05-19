@@ -19,7 +19,8 @@ int main(void){
     enableWDTInterrupts();
     
     state = 0;
-
+    clearScreen(COLOR_BLACK);
+    
    for(;;) { 
     while (!redraw) { /**< Pause CPU if screen doesn't need updating */
       P1OUT &= ~LED_GREEN;    /**< Green led off witHo CPU */
@@ -37,10 +38,12 @@ void wdt_c_handler()
   P1OUT |= LED_GREEN;		      /**< Green LED on when cpu on */
   counter ++;
   if (counter == 15) {
-    u_int switches = p2sw_read();
-    for( int k = 0; k < 4; k++) {          
+    u_int switches = p2sw_read(), k;
+    for(k = 0; k < 4; k++) {          
       if(!(switches & (1<<k))) {
-        count = 0;
+	if(k==0){
+	  state_machine(1);
+	  counter = 
         state_machine(k);
       }
     }
