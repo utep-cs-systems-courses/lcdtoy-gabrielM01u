@@ -61,7 +61,7 @@ void wdt_c_handler()
             counter = 0;
         }
       }
-    }*//
+    }*/
     counter = 0;
     counter ++;
   } 
