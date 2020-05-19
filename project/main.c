@@ -38,9 +38,8 @@ void wdt_c_handler()
   static short counter = 0;
   P1OUT |= LED_GREEN;		      /**< Green LED on when cpu on */
   counter ++;
-  /**
   if (counter == 15) {
-    
+    u_int switches = p2sw_read(), k;
     for(k = 0; k < 4; k++) {          
       if(!(switches & (1<<k))) {
 	      if(k==0){
@@ -64,6 +63,6 @@ void wdt_c_handler()
     }
     counter = 0;
     counter ++;
-  } */
+  } 
   P1OUT &= ~LED_GREEN;		    /**< Green LED off when cpu off */
 }
