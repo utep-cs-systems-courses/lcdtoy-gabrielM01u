@@ -39,27 +39,14 @@ void wdt_c_handler()
   P1OUT |= LED_GREEN;		      /**< Green LED on when cpu on */
   counter ++;
   if (counter == 15) {
-    u_int switches = p2sw_read(), k;
-    for(k = 0; k < 4; k++) {          
-      if(!(switches & (1<<k))) {
-	      if(k==0){
-          state = 1;
-          redraw = 1;
-          counter = 0;
-        }
-        if(k==1){
-            state = 2;
-            counter = 0;
-          }
-        if(k==2){
-          state = 3;
-          counter = 0;
-        }
-        if(k==3){
-            state = 3;
-            counter = 0;
-        }
-      }
+    u_int switches = p2sw_read();
+
+    if(switches & 1) state = 1;
+    else if(switches & 2) state = 2;
+    else if(sitches & 3) state = 3;
+    else if(switches & 4) state = 4;
+    else state = 0;
+    
     }
     counter = 0;
     counter ++;
