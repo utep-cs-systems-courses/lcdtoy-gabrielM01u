@@ -41,10 +41,14 @@ void wdt_c_handler()
     u_int switches = p2sw_read(), k;
     for(k = 0; k < 4; k++) {          
       if(!(switches & (1<<k))) {
-	if(k==0){
-	  state_machine(1);
-	  counter = 
-        state_machine(k);
+	      if(k==0){
+          state_machine(1);
+          counter = 0;
+        }
+        if(k==1){
+            state_machine(2);
+            counter = 0;
+          }
       }
     }
     //if (p2sw_read()){
